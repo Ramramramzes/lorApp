@@ -14,8 +14,9 @@ export interface IGlobalSettings{
     symptoms: IDiagnosisSettings[];
     clinics: IDiagnosisSettings[];
   }
-  symptoms:IDiagnosisSettings[]
-  clinics:IDiagnosisSettings[]
+  symptoms:IDiagnosisSettings[];
+  clinics:IDiagnosisSettings[];
+  checkedList: string[];
 }
 
 const initialState:IGlobalSettings = {
@@ -27,6 +28,7 @@ const initialState:IGlobalSettings = {
   },
   symptoms: [],
   clinics: [],
+  checkedList: [],
 }
 
 const globalSlice = createSlice({
@@ -42,8 +44,15 @@ const globalSlice = createSlice({
     setClinic: (state, action) => {
       state.clinics = action.payload;
     },
+    filterCheckList: (state, action) => {
+      if(!state.checkedList.includes(action.payload)){
+        state.checkedList.push(action.payload);
+      }else{
+        state.checkedList = state.checkedList.filter(item => item!== action.payload);
+      }
+    }
     
 }})
 
-export const { setDiagnosis, setClinic, setSymptom } = globalSlice.actions
+export const { setDiagnosis, setClinic, setSymptom, filterCheckList } = globalSlice.actions
 export default globalSlice.reducer;

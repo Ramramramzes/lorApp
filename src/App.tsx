@@ -3,6 +3,7 @@ import { RootState } from './store/store';
 import { useClinic } from './hooks/useClinic';
 // import { useEffect } from 'react';
 import { useSymptom } from './hooks/useSymptom';
+import { ItemBtn } from './components/ItemBtn';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         {
         GlobalState.clinics && GlobalState.clinics.length > 0 && 
         GlobalState.clinics.map((el) => (
-          <li key={el.id}>{el.title.rendered}</li>
+          <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
         ))
         }
       </div>
@@ -24,7 +25,7 @@ function App() {
         {
         GlobalState.symptoms && GlobalState.symptoms.length > 0 && 
         GlobalState.symptoms.map((el) => (
-          <li key={el.id}>{el.title.rendered}</li>
+          <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
         ))
         }
       </div>
