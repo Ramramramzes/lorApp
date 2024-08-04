@@ -1,0 +1,16 @@
+.block{
+  padding: 1% 0%;
+  li{
+    animation: entering 200ms linear;
+    cursor: pointer;
+  }
+}
+
+@keyframes entering {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
