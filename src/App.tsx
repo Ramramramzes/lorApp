@@ -1,10 +1,16 @@
-import './App.css'
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
 
-export function App() {
+
+function App() {
+  const GlobalState = useSelector((state: RootState) => state.global);
+  console.log(GlobalState);
 
   return (
     <>
-    app
+      app
     </>
   )
 }
+
+export default App
