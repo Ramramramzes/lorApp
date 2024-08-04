@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
 import { useClinic } from './hooks/useClinic';
-// import { useEffect } from 'react';
 import { useSymptom } from './hooks/useSymptom';
 import { ItemBtn } from './components/ItemBtn';
+import { Accordion } from 'react-bootstrap';
+import styles from './App.module.scss';
 
 
 function App() {
@@ -13,22 +14,30 @@ function App() {
 
   return (
     <>
-      <div>
-        {
-        GlobalState.clinics && GlobalState.clinics.length > 0 && 
-        GlobalState.clinics.map((el) => (
-          <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
-        ))
-        }
-      </div>
-      <div>
-        {
-        GlobalState.symptoms && GlobalState.symptoms.length > 0 && 
-        GlobalState.symptoms.map((el) => (
-          <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
-        ))
-        }
-      </div>
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Клинические картины</Accordion.Header>
+          <Accordion.Body className={styles.btnsBlock}>
+            {
+            GlobalState.clinics && GlobalState.clinics.length > 0 && 
+            GlobalState.clinics.map((el) => (
+              <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
+            ))
+            }
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>Симптомы</Accordion.Header>
+          <Accordion.Body className={styles.btnsBlock}>
+            {
+            GlobalState.symptoms && GlobalState.symptoms.length > 0 && 
+            GlobalState.symptoms.map((el) => (
+              <ItemBtn key={el.id} text={el.title.rendered}></ItemBtn>
+            ))
+            }
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </>
   )
 }

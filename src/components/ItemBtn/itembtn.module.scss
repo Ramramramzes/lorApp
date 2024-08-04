@@ -1,3 +1,25 @@
 .btn{
   cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-radius: 100px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: 200ms linear;
+  &:hover{
+    transition: 200ms linear;
+    border: 1px solid #88cce4;
+    background-color: #f9fdff;
+  }
+  .text{
+    margin-right: 30px;
+  }
+  .redLight {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(249, 60, 60);
+    box-shadow: 0 0 15px rgb(249, 60, 60);
+  }
 }
