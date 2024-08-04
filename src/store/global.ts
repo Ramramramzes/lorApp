@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface IDiagnosisSettings{
-  id: string;
-  symptom: string;
+  id: number;
+  title:{
+    rendered: string;
+  }
 }
 
 export interface IDiagnosis{
