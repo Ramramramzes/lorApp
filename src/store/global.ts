@@ -7,7 +7,7 @@ export interface IDiagnosisSettings{
   }
 }
 
-export interface IDiagnosis{
+export interface IGlobalSettings{
   diagnosis:{
     id: string;
     diagnos: string;
@@ -18,7 +18,7 @@ export interface IDiagnosis{
   clinics:IDiagnosisSettings[]
 }
 
-const initialState:IDiagnosis = {
+const initialState:IGlobalSettings = {
   diagnosis: {
     id: '',
     diagnos: '',
