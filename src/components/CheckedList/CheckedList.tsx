@@ -12,7 +12,7 @@ export function CheckedList() {
   }
 
   return (
-    <ul className={styles.block + ' container'}>
+    <ul className={styles.block}>
       {
       GlobalState.checkedList.length != 0 ? 
       

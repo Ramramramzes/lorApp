@@ -9,7 +9,6 @@ export function ItemBtn({text}: {text: string}) {
   const [light,setLight] = useState(false);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     if(GlobalState.checkedList.includes(text)){
       setLight(true);
@@ -22,7 +21,7 @@ export function ItemBtn({text}: {text: string}) {
     dispatch(filterCheckList(text));
     setLight(!light);
   }
-  console.log(GlobalState.checkedList);
+  
   return (
     <div
     className={styles.btn}

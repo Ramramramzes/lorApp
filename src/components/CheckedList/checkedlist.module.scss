@@ -1,5 +1,9 @@
 .block{
-  padding: 1% 0%;
+  width: 35%;
+  margin: 0%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
   li{
     animation: entering 200ms linear;
     cursor: pointer;

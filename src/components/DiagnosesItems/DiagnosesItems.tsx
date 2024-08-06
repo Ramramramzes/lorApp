@@ -3,15 +3,18 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { ItemBtn } from '../ItemBtn/ItemBtn';
 import { Accordion } from "react-bootstrap";
+import { SearchInput } from '../SearchInput';
 
 export function DiagnosesItems() {
   const GlobalState = useSelector((state: RootState) => state.global);
+
   return (
-    <>
+    <div className={styles.blcok}>
       <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey="0" >
           <Accordion.Header>Клинические картины</Accordion.Header>
           <Accordion.Body className={styles.btnsBlock}>
+            <SearchInput />
             {
             GlobalState.clinics && GlobalState.clinics.length > 0 && 
             GlobalState.clinics.map((el) => (
@@ -32,6 +35,6 @@ export function DiagnosesItems() {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-    </>
+    </div>
   );
 }

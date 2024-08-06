@@ -1,5 +1,8 @@
-.btnsBlock{
+.blcok{
+  width: 60%;
+  .btnsBlock{
   display: flex;
-  gap: 1%;
   flex-wrap: wrap;
+  gap: 1%;
+}
 }

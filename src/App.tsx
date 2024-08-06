@@ -1,3 +1,4 @@
+import styles from './App.module.scss'
 import { CheckedList } from './components/CheckedList';
 import { DiagnosesItems } from './components/DiagnosesItems';
 import { useClinic } from './hooks/useClinic';
@@ -9,10 +10,10 @@ function App() {
   useSymptom();
 
   return (
-    <>
-      <CheckedList />
+    <div className={styles.block}>
       <DiagnosesItems />
-    </>
+      <CheckedList />
+    </div>
   )
 }
 
