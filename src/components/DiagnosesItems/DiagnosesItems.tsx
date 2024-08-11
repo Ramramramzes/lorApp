@@ -8,6 +8,11 @@ import { SearchInput } from '../SearchInput';
 export function DiagnosesItems() {
   const GlobalState = useSelector((state: RootState) => state.global);
 
+  const clickHandler = () => {
+
+    console.log(GlobalState.diagnosis);
+  }
+
   return (
     <div className={styles.blcok}>
       <Accordion defaultActiveKey="0">
@@ -36,6 +41,8 @@ export function DiagnosesItems() {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+
+      <button onClick={clickHandler}>тык</button>
     </div>
   );
 }
