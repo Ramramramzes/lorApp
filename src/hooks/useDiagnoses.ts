@@ -6,7 +6,7 @@ export const useDiagnosis = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios('https://j26063212.myjino.ru/wordpress/wp-json/wp/v2/diagnosis');
+        const response = await axios('https://enthelp.ru/wp-json/wp/v2/diagnosis');
         setData(response.data);
       } catch (err) {
         console.log(err);

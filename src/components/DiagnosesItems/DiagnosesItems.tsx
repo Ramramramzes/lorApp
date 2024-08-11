@@ -14,7 +14,7 @@ export function DiagnosesItems() {
         <Accordion.Item eventKey="0" >
           <Accordion.Header>Клинические картины</Accordion.Header>
           <Accordion.Body className={styles.btnsBlock}>
-            <SearchInput />
+            <SearchInput where="clinic" />
             {
             GlobalState.clinics && GlobalState.clinics.length > 0 && 
             GlobalState.clinics.map((el) => (
@@ -26,6 +26,7 @@ export function DiagnosesItems() {
         <Accordion.Item eventKey="1">
           <Accordion.Header>Симптомы</Accordion.Header>
           <Accordion.Body className={styles.btnsBlock}>
+          <SearchInput where="symptom" />
             {
             GlobalState.symptoms && GlobalState.symptoms.length > 0 && 
             GlobalState.symptoms.map((el) => (

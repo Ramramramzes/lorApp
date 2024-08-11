@@ -9,7 +9,7 @@ export const useSymptom = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios('https://j26063212.myjino.ru/wordpress/wp-json/wp/v2/symptom');
+        const response = await axios('https://enthelp.ru/wp-json/wp/v2/symptom');
         setData(response.data);
         dispatch(setSymptom(response.data));
       } catch (err) {

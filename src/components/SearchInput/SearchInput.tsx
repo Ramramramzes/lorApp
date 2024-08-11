@@ -2,18 +2,21 @@ import { ChangeEvent } from 'react';
 import { useDispatch} from 'react-redux';
 import styles from './searchinput.module.css';
 import { useClinic } from '../../hooks/useClinic';
-import { IDiagnosisSettings, setClinic } from '../../store/global';
+import { IDiagnosisSettings, setClinic, setSymptom } from '../../store/global';
+import { useSymptom } from '../../hooks/useSymptom';
 
-export function SearchInput() {
+export function SearchInput({where}:{where: string}) {
   const dispatch = useDispatch(); 
-  const allClinics = useClinic()
+  const clinic = useClinic();
+  const symptom = useSymptom()
+  const allClinics = where === 'clinic' ? clinic : symptom
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value.toLowerCase();
-    const filteredClinics = allClinics.filter((el:IDiagnosisSettings) =>
+    const filtered = allClinics.filter((el:IDiagnosisSettings) =>
       el.title.rendered.toLowerCase().includes(searchTerm)
     );
-    dispatch(setClinic(filteredClinics)); 
+    where === 'clinic'? dispatch(setClinic(filtered)) : dispatch(setSymptom(filtered))
   }
 
   return (

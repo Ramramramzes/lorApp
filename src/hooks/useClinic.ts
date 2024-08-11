@@ -9,7 +9,7 @@ export const useClinic = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios('https://j26063212.myjino.ru/wordpress/wp-json/wp/v2/clinic');
+        const response = await axios('https://enthelp.ru/wp-json/wp/v2/clinic');
         setData(response.data);
         dispatch(setClinic(response.data));
       } catch (err) {
