@@ -1,31 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface IDiagnosisSettings{
-  id: number;
-  title:{
-    rendered: string;
-  }
-}
-
 export interface IGlobalSettings{
   diagnosis:{
     id: string;
     diagnos: string;
-    symptoms: IDiagnosisSettings[];
-    clinics: IDiagnosisSettings[];
-  }
-  symptoms:IDiagnosisSettings[];
-  clinics:IDiagnosisSettings[];
+    symptoms: {post_title:string}[];
+    clinics: {post_title:string}[];
+  }[]
+  symptoms:string[];
+  clinics:string[];
   checkedList: string[];
 }
 
 const initialState:IGlobalSettings = {
-  diagnosis: {
-    id: '',
-    diagnos: '',
-    symptoms: [],
-    clinics: [],
-  },
+  diagnosis: [],
   symptoms: [],
   clinics: [],
   checkedList: [],

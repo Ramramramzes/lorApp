@@ -1,23 +1,28 @@
 import axios from "axios";
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react";
 import { setSymptom } from "../store/global";
 import { useDispatch } from "react-redux";
 
 export const useSymptom = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<string[]>([]);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios('https://enthelp.ru/wp-json/wp/v2/symptom');
-        setData(response.data);
-        dispatch(setSymptom(response.data));
+        const response = await axios.get('https://enthelp.ru/wp-json/wp/v2/symptom');
+
+        const clinics = response.data.map((el: { title: { rendered: string } }) => el.title.rendered);
+        
+        setData(clinics);
+        dispatch(setSymptom(clinics));
       } catch (err) {
         console.log(err);
       }
-    }
-    fetchData();
-  }, []);
-  return data;
-}
+    };
 
+    fetchData();
+  }, [dispatch]);
+
+  return data;
+};
