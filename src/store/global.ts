@@ -32,6 +32,9 @@ const globalSlice = createSlice({
     setClinic: (state, action) => {
       state.clinics = action.payload;
     },
+    clearCheckList: (state) => {
+      state.checkedList = [];
+    },
     filterCheckList: (state, action) => {
       if(!state.checkedList.includes(action.payload)){
         state.checkedList.push(action.payload);
@@ -42,5 +45,5 @@ const globalSlice = createSlice({
     
 }})
 
-export const { setDiagnosis, setClinic, setSymptom, filterCheckList } = globalSlice.actions
+export const { setDiagnosis, setClinic, setSymptom, filterCheckList, clearCheckList } = globalSlice.actions
 export default globalSlice.reducer;
