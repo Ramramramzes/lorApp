@@ -10,6 +10,7 @@ export interface IGlobalSettings{
   symptoms:string[];
   clinics:string[];
   checkedList: string[];
+  resultMode: boolean;
 }
 
 const initialState:IGlobalSettings = {
@@ -17,6 +18,7 @@ const initialState:IGlobalSettings = {
   symptoms: [],
   clinics: [],
   checkedList: [],
+  resultMode: false,
 }
 
 const globalSlice = createSlice({
@@ -41,9 +43,12 @@ const globalSlice = createSlice({
       }else{
         state.checkedList = state.checkedList.filter(item => item!== action.payload);
       }
+    },
+    changeMode: (state) => {
+      state.resultMode = !state.resultMode;
     }
     
 }})
 
-export const { setDiagnosis, setClinic, setSymptom, filterCheckList, clearCheckList } = globalSlice.actions
+export const { setDiagnosis, setClinic, setSymptom, filterCheckList, clearCheckList, changeMode } = globalSlice.actions
 export default globalSlice.reducer;

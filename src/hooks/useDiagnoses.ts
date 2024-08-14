@@ -10,7 +10,7 @@ export const useDiagnosis = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://enthelp.ru/wp-json/wp/v2/diagnosis');
+        const response = await axios.get('https://enthelp.ru/wp-json/wp/v2/diagnosis?per_page=100');
         const processedData = response.data.map((item: {id: number, title: {rendered: string}, symptoms: string[], clinics: string[] }) => ({
           id: item.id,
           diagnos: item.title.rendered,

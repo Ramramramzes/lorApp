@@ -10,7 +10,8 @@ export const useClinic = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios('https://enthelp.ru/wp-json/wp/v2/clinic');
+        const response = await axios('https://enthelp.ru/wp-json/wp/v2/clinic?per_page=100');
+
         const clinics = response.data.map((el: { title: { rendered: string } }) => el.title.rendered);
 
         setData(clinics);

@@ -1,5 +1,5 @@
 import styles from './diagnosesitems.module.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 // import { ItemBtn } from '../ItemBtn/ItemBtn';
 // import { Accordion } from "react-bootstrap";
@@ -8,12 +8,15 @@ import { RootState } from '../../store/store';
 import { useEffect, useState } from 'react';
 import { AccordionItem } from '../AccordionItem';
 import { ResultItem } from '../ResultItem';
+import { changeMode } from '../../store/global';
 
 export function DiagnosesItems() {
   const GlobalState = useSelector((state: RootState) => state.global);
+  const dispatch = useDispatch();
   const [resArr,setResArr] = useState<Array<{diagnos: string, coinClinic: number, coinSymptom: number, coinRes: number}>>([]);
 
   const cklickResulHandler = () => {
+    dispatch(changeMode())
     setResArr([])
 
     const newResArr = GlobalState.diagnosis.map((el) => {

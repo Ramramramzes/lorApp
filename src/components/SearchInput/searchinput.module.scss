@@ -1,0 +1,13 @@
+.block{
+  width: 100%;
+  margin-bottom: 2%;
+  .searchInput{
+    width: 50%;
+    border: 1px solid #ebebeb;
+    border-radius: 100px;
+    padding: 3px 20px;
+    &:active{
+      border-color: antiquewhite;
+    }
+  }
+}
