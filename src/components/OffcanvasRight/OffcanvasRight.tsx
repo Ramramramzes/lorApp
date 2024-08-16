@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import styles from './offcanvasright.css';
 import { Button, Offcanvas } from 'react-bootstrap';
 import { CheckedList } from '../CheckedList';
